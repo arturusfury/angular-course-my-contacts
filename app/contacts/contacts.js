@@ -1,14 +1,14 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myContacts.contacts', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
+  $routeProvider.when('/contacts', {
+    templateUrl: 'contacts/contacts.html',
+    controller: 'ContactsCtrl'
   });
 }])
 
-.controller('View1Ctrl', [function() {
+.controller('ContactsCtrl', [function() {
 
 }]);
