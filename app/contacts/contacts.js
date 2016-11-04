@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myContacts.contacts', ['ngRoute'])
+angular.module('myContacts.contacts', ['ngRoute', 'firebase'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/contacts', {
@@ -9,10 +9,10 @@ angular.module('myContacts.contacts', ['ngRoute'])
   });
 }])
 
-.controller('ContactsCtrl', ['$scope', '$firebasearray', function($scope, $firebasearray) {
-  var ref = new Firebase('https://angular-my-contacts.firebaseio.com/contacts');
+.controller('ContactsCtrl', ['$scope', '$firebaseArray', function($scope, $firebaseArray) {
+  var ref = firebase.database().ref();
 
-  $scope.contacts = $firebasearray(ref);
+  $scope.contacts = $firebaseArray(ref);
 
   $scope.showAddForm = function() {
     $scope.addFormShow = true;

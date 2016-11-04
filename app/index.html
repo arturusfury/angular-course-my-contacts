@@ -27,6 +27,17 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/firebase/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCycLdpP9PmwNOOwt2GeRKQIW2fO4HXMn0",
+      authDomain: "angular-my-contacts.firebaseapp.com",
+      databaseURL: "https://angular-my-contacts.firebaseio.com",
+      storageBucket: "angular-my-contacts.appspot.com",
+      messagingSenderId: "456478288377"
+    };
+    firebase.initializeApp(config);
+  </script>
   <script src="bower_components/angularfire/dist/angularfire.js"></script>
   <script src="bower_components/foundation/js/foundation.js"></script>
   <script src="app.js"></script>
