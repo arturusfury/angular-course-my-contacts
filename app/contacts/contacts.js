@@ -9,6 +9,6 @@ angular.module('myContacts.contacts', ['ngRoute'])
   });
 }])
 
-.controller('ContactsCtrl', [function() {
-
+.controller('ContactsCtrl', ['$scope', '$firebasearray', function($scope, $firebasearray) {
+  console.log(scope)
 }]);
