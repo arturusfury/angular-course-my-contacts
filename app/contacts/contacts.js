@@ -10,5 +10,7 @@ angular.module('myContacts.contacts', ['ngRoute'])
 }])
 
 .controller('ContactsCtrl', ['$scope', '$firebasearray', function($scope, $firebasearray) {
-  console.log(scope)
+  var ref = new Firebase('https://angular-my-contacts.firebaseio.com/contacts');
+
+  $scope.contacts = $firebasearray(ref);
 }]);
