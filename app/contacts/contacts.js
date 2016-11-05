@@ -10,7 +10,7 @@ angular.module('myContacts.contacts', ['ngRoute', 'firebase'])
 }])
 
 .controller('ContactsCtrl', ['$scope', '$firebaseArray', function($scope, $firebaseArray) {
-  var ref = firebase.database().ref();
+  var ref = firebase.database().ref('contacts');
 
   $scope.contacts = $firebaseArray(ref);
 
@@ -20,6 +20,19 @@ angular.module('myContacts.contacts', ['ngRoute', 'firebase'])
 
   $scope.hide = function() {
     $scope.addFormShow = false;
+  };
+
+  $scope.clearFields = function() {
+    $scope.name = '';
+    $scope.email = '';
+    $scope.company = '';
+    $scope.home_phone = '';
+    $scope.mobile_phone = '';
+    $scope.work_phone = '';
+    $scope.street_address = '';
+    $scope.city = '';
+    $scope.state = '';
+    $scope.zipcode = '';
   };
 
   $scope.addFormSubmit = function() {
@@ -54,12 +67,8 @@ angular.module('myContacts.contacts', ['ngRoute', 'firebase'])
         }
       ]
     }).then(function(ref) {
-      var id = ref.key();
-
-      console.log("Contact Added with ID: " + id)
-
-      clearFields();
-      $scope.addFormShow = false;
+      $scope.clearFields();
+      $scope.hide();
 
       $scope.msg = "Contact Added";
     });
